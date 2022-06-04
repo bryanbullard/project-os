@@ -1,0 +1,50 @@
+
+Idle Thread:
+
+The "kernel-mode" thread that is created in the executives
+process space that runs when no other thread can run.  It
+the only thread that runs at the lowest possible priority.
+This thread starts execution at "normal" interrupt level
+and may be pre-empted by the scheduler.
+
+User Thread:
+
+Normal user threads that is created in a user process 
+space that can trap into the executive by means of kernel 
+system calls.  This thread starts execution at "normal" 
+interrupt level and may be pre-empted by the scheduler.
+
+Kernel Thread:
+
+A "kernel-mode" thread that is created in the executive's
+process space that can run at any priority except idle
+priority.  This thread starts execution at "normal" 
+interrupt level and may be pre-empted by the scheduler.
+
+User Service thread:
+
+A thread that is normally created in a user process space 
+that only runs in "kernel-mode".  It is queued by a device 
+driver to complete a long io request from user mode.  These
+Thread run at a priority that is higher than user threads.
+This thread starts execution at "normal" interrupt level 
+and may be pre-empted by the scheduler.
+
+Device Service thread:
+
+A "kernel-mode" thread that is created in the executive's
+process space that run in a range of the most high priorities.  
+The actual priority is determined by the associated interrupt 
+level the device runs at.  It is designed for processing device
+interrupts.  This thread starts execution at "normal" interrupt 
+level and may be pre-empted by the scheduler.
+
+Device Signal Thread:
+
+A "kernel-mode" thread that is created automatically in the 
+executive's process for handling device interrupts.  This 
+threads should stop their device from signaling, read the 
+devices state as needed and then past the rest of the processing
+to a Device Service Thread.  This thread starts execution at an 
+interrupt level that is determined by the driver and is not
+subject to the scheduler.

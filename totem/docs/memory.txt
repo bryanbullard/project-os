@@ -1,0 +1,13 @@
+System memory layout of PC conventional memory
+
+00000000-00000FFF -- bios data area
+00001000-0009FFFF -- available
+000A0000-000AFFFF -- video ram
+000B0000-000BFFFF -- text mode ram
+000C0000-000C7FFF -- video bios rom
+000C8000-000CBFFF -- ide bois rom
+000CC000-000DFFFF -- reserved for other adapter roms or rams
+000E0000-000EFFFF -- reserved for system bios plug and play extentions
+000F0000-000FFFFF -- system bios rom
+
+

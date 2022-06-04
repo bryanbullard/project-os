@@ -1,0 +1,15 @@
+#
+# This is the GRUB script for booting Totem from
+# a floppy drive (fd0).
+#
+# Note: Don't change this unless you know what 
+#       you're doing.
+#
+# boot the first entry by default
+hiddenmenu
+default 0
+timeout 1
+title   Totem 32-bit Operating System
+root    (fd0)
+kernel  /system/oskernel
+

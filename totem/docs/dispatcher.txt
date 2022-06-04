@@ -1,0 +1,53 @@
+
+int_n - nested interrupt count
+
+
+int_entry:
+
+	push regs;
+	
+	push current int_level;
+	update current int_level;
+
+	push int vector #	
+	
+	
+	sti (optional)	
+
+	ack int;
+
+	cli (optional)
+	
+	pop int#
+	
+	pop int_level;
+	
+	if (int_level == normal_level)
+		save ESP to current thread struct.
+		schedule; (update current thread struct)
+		restore ESP from current thread struct.
+	
+	pop regs;
+	iret;		
+	
+	
+	
+	
+Examples:
+
+yield:
+	t->quanta = expired;
+	int ?? (any interrupt)
+
+
+
+
+
+
+
+
+
+
+
+
+

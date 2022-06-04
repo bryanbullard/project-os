@@ -1,0 +1,6 @@
+This is the build root.  Run build.sh (bash) to invoke binutils.
+
+As of the moment the build environment is cygwin gcc on win32.  
+Note that the cygwin linker seems to only want to output pe format.  
+The pe file is converted to elf format (the native format for the 
+executive).
